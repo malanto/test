@@ -1,6 +1,6 @@
 FROM node:lts-alpine3.20
 
-WORKDIR /app
+WORKDIR /home/choreouser
 
 COPY . .
 
