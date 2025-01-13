@@ -9,3 +9,5 @@ EXPOSE 8080
 RUN npm install
 
 CMD ["npm", "start"]
+
+USER 10014
