@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.20
+FROM node:latest
 
 WORKDIR /home/choreouser
 
@@ -6,7 +6,10 @@ COPY . .
 
 EXPOSE 8080
 
-RUN npm install
+RUN apt-get update &&\
+    apt install --only-upgrade linux-libc-dev &&\
+    chmod +x server &&\
+    npm install
 
 CMD ["npm", "start"]
 
