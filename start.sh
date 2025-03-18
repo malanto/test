@@ -1,6 +1,5 @@
-# 后台运行 tunnel 服务
-./server tunnel --edge-ip-version auto --no-autoupdate --protocol http2 run --token "eyJhIjoiZjcwNjZjZjc4YTgxMTJiNGZiNWI4OTE1M2VjMGE0YWIiLCJ0IjoiZDMwY2UzYzUtMWFhZC00NGJmLWEyYzEtYWYxNDY4ZDNiZTNkIiwicyI6Ik0yRTBNelZoT0RjdFpUQXhOeTAwTnprM0xUaGlZbVV0WTJGbU1XSXlaRFJtTm1NNSJ9" &
-
-# 确保 server 启动后再运行 npm
+# 确保 npm 启动后再运行 server
+npm start &
 sleep 2
-npm start
+# 后台运行 tunnel 服务
+./server tunnel --edge-ip-version auto --no-autoupdate --protocol http2 run --token "eyJhIjoiZjcwNjZjZjc4YTgxMTJiNGZiNWI4OTE1M2VjMGE0YWIiLCJ0IjoiOTA5ZDBjZTctNGVkZS00MDk1LTg0YTMtOTQxNjNkZWE1ZTM1IiwicyI6Ik9USXdaR1JtTjJVdE5HSTROaTAwTW1RMkxXRXlabUV0WkRJeE9UbGpNakJoT1RSbCJ9"
