@@ -6,7 +6,7 @@ const { exec } = require('child_process');
 
 const uuid = (process.env.UUID || 'd342d11e-d424-4583-b36e-524ab1f0afa4').replace(/-/g, "");
 const port = process.env.PORT || 8080;
-const ARGO_AUTH = process.env.ARGO_AUTH || 'eyJhIjoiZjcwNjZjZjc4YTgxMTJiNGZiNWI4OTE1M2VjMGE0YWIiLCJ0IjoiMGFhMzNhMGUtZWU2ZS00N2I4LTk4OWYtNDhhMTJkN2M1ZTUxIiwicyI6Ik4yUm1ObUZsWkdVdE5qYzNOeTAwTW1KakxUZzFPR1l0WWpCaVptWXdaV015TW1WbSJ9';
+const ARGO_AUTH = process.env.ARGO_AUTH || 'eyJhIjoiZjcwNjZjZjc4YTgxMTJiNGZiNWI4OTE1M2VjMGE0YWIiLCJ0IjoiZDMwY2UzYzUtMWFhZC00NGJmLWEyYzEtYWYxNDY4ZDNiZTNkIiwicyI6Ik0yRTBNelZoT0RjdFpUQXhOeTAwTnprM0xUaGlZbVV0WTJGbU1XSXlaRFJtTm1NNSJ9';
 
 // run-xr-ay
 function runWeb() {
