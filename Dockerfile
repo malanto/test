@@ -8,6 +8,7 @@ EXPOSE 8080
 
 RUN apt-get update &&\
     apt install --only-upgrade linux-libc-dev &&\
+    chown -R 10014:10014 /home/choreouser &&\
     chmod +x ./server &&\
     npm install
 
