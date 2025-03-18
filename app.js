@@ -2,49 +2,14 @@ const http = require('http');
 const net = require('net');
 const { WebSocket, createWebSocketStream } = require('ws');
 const { TextDecoder } = require('util');
-const { exec } = require('child_process');
 
 const uuid = (process.env.UUID || 'd342d11e-d424-4583-b36e-524ab1f0afa4').replace(/-/g, "");
 const port = process.env.PORT || 8080;
-const ARGO_AUTH = process.env.ARGO_AUTH || 'eyJhIjoiZjcwNjZjZjc4YTgxMTJiNGZiNWI4OTE1M2VjMGE0YWIiLCJ0IjoiMGFhMzNhMGUtZWU2ZS00N2I4LTk4OWYtNDhhMTJkN2M1ZTUxIiwicyI6Ik4yUm1ObUZsWkdVdE5qYzNOeTAwTW1KakxUZzFPR1l0WWpCaVptWXdaV015TW1WbSJ9';
-
-// run-xr-ay
-function runWeb() {
-    setTimeout(() => {
-        runServer();
-    }, 2000);
-}
-
-// run-server
-function runServer() {
-    let command = ''; 
-    if (ARGO_AUTH.match(/^[A-Z0-9a-z=]{120,250}$/)) {
-        command = `nohup ./server tunnel --edge-ip-version auto --no-autoupdate --protocol http2 run --token ${ARGO_AUTH} >/dev/null 2>&1 &`; 
-    } else {
-        command = `nohup ./server tunnel --edge-ip-version auto --config tunnel.yml run >/dev/null 2>&1 &`; 
-    }
-
-    exec(command, (error) => { 
-        if (error) {
-            console.error(`server running error: ${error}`);
-        } else {
-            console.log('server is running');
-        }
-    });
-}
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/start' && req.method === 'GET') {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('Server starting...');
-        setTimeout(() => {
-          runWeb();
-        }, 2000);
-    } else {
-        res.writeHead(405, { 'Content-Type': 'text/html' });
-        res.end(`<h1>Method Not Allowed</h1>
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`<h1>Method Not Allowed</h1>
 <p>The method is not allowed for the requested URL.</p>`);
-    }
 });
 
 server.listen(port, () => { 
