@@ -13,6 +13,6 @@ RUN apt-get update &&\
     chmod +x ./server &&\
     npm install
 
-CMD ["bash", "start.sh"]
+CMD ["npm", "start"]
 
 USER 10014
