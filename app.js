@@ -1,6 +1,7 @@
 const http = require('http');
 const net = require('net');
 const { WebSocket, createWebSocketStream } = require('ws');
+const { exec } = require('child_process');
 const { TextDecoder } = require('util');
 const dns = require('dns');
 
